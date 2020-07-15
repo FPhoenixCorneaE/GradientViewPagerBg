@@ -3,5 +3,5 @@
 -------------------------------------------------------------------------
 
 <div align="center">
-    <img src="/preview/gradient_bg.png" width="320"/>
+    <img src="https://github.com/FPhoenixCorneaE/GradientViewPagerBg/blob/f745c0e14b9f1e99d6a4c9d7669eeb6c85a01f84/preview/gradient_bg.gif" width="320"/>
 </div>
