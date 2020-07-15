@@ -58,7 +58,8 @@ class MainActivity : AppCompatActivity() {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
             adapter = mViewPager2Adapter
             offscreenPageLimit = mDatas.size
-            setCurrentItem((Int.MAX_VALUE / 2) - (Int.MAX_VALUE / 2) % mDatas.size, false)
+            mCurrentPosition = (Int.MAX_VALUE / 2) - (Int.MAX_VALUE / 2) % mDatas.size
+            setCurrentItem(mCurrentPosition, false)
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageScrolled(
                     position: Int,
@@ -87,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onPageSelected(position: Int) {
+                    Log.i("onPageSelected", "position-->$position")
                     mCurrentPosition = position
                 }
 
@@ -102,12 +104,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun initSlideshowDisposable() {
         dispose()
-        mSlideshowDisposable = Observable.interval(3, TimeUnit.SECONDS)
+        mSlideshowDisposable = Observable.interval(3, 3, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    mVpPager2.setCurrentItem(mCurrentPosition + 1, true)
+                    mVpPager2.setCurrentItem(mCurrentPosition + 1, 800)
                 },
                 {
 
@@ -115,8 +117,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun dispose() {
-        if (mSlideshowDisposable != null && !mSlideshowDisposable!!.isDisposed) {
-            mSlideshowDisposable!!.dispose()
-        }
+        mSlideshowDisposable?.dispose()
     }
 }
