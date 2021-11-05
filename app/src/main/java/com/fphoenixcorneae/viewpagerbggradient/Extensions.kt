@@ -1,4 +1,4 @@
-package com.wkz.viewpagerbggradient
+package com.fphoenixcorneae.viewpagerbggradient
 
 import android.animation.Animator
 import android.animation.TimeInterpolator
@@ -7,12 +7,12 @@ import android.view.animation.LinearInterpolator
 import androidx.viewpager2.widget.ViewPager2
 
 /**
- * ViewPager2改变动画切换速度
+ * ViewPager2 改变动画切换速度
  * 设置当前Item
- * @param item     下一个跳转的item
- * @param duration scroll时长
+ * @param item         下一个跳转的item
+ * @param duration     scroll时长
  * @param interpolator 插值器
- * @param pagePxWidth 页面宽度,单位"px"
+ * @param pagePxWidth  页面宽度,单位"px"
  */
 fun ViewPager2.setCurrentItem(
     item: Int,
